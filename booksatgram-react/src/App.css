@@ -1,3 +1,13 @@
+/* Global Styles */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f4f4f4;
+  margin: 0;
+  padding: 0;
+  text-align: center;
+}
+
+/* PDF Viewer Modal */
 .pdf-viewer-modal {
   position: fixed;
   top: 0;
@@ -17,15 +27,21 @@
   max-width: 80%;
   max-height: 80%;
   overflow: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
+
+/* Book Grid */
 .book-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); /* Responsive columns */
+  
+  grid-template-columns: repeat(3, minmax(150px, 1fr));
   gap: 16px;
   padding: 20px;
   justify-content: center;
 }
 
+/* Book Card */
 .book-card {
   background-color: white;
   border-radius: 10px;
@@ -34,7 +50,7 @@
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease-in-out;
-  width: 100%; /* Adapts to parent container */
+  width: 100%;
   min-height: 80px;
   display: flex;
   align-items: center;
@@ -47,54 +63,63 @@
   background-color: #f4f4f4;
 }
 
-/* ✅ Responsive for Tablets */
-@media (max-width: 768px) {
-  .book-grid {
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 12px;
-  }
-
-  .book-card {
-      font-size: 14px;
-      padding: 10px;
-  }
-}
-
-/* ✅ Responsive for Phones */
-@media (max-width: 480px) {
-  .book-grid {
-      grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-      gap: 8px;
-  }
-
-  .book-card {
-      font-size: 12px;
-      padding: 8px;
-  }
-}
-
+/* Close Button */
 button {
   position: absolute;
   top: 10px;
   right: 10px;
+  background-color: #dc3545;
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  cursor: pointer;
 }
+
+button:hover {
+  background-color: #a71d2a;
+}
+
+/* ✅ Responsive for Tablets */
 @media (max-width: 768px) {
-  .pdf-viewer-container {
-    width: 90%;  /* Adjust width for smaller screens (tablets, mobile) */
-    max-height: 90%;  /* Limit height to prevent overflow */
+  .book-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
   }
-}
 
+  .book-card {
+    font-size: 14px;
+    padding: 10px;
+  }
+
+  .pdf-viewer-container {
+    width: 90%;
+    max-height: 90%;
+  }
+} 
+
+/* ✅ Responsive for Phones */
 @media (max-width: 480px) {
+  .book-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 8px;
+  }
+
+  .book-card {
+    font-size: 12px;
+    padding: 8px;
+  }
+
   .pdf-viewer-container {
-    width: 95%;  /* Further reduce width on smaller devices */
-    max-height: 85%;  /* Adjust max height to fit smaller screens */
+    width: 95%;
+    max-height: 85%;
   }
 }
 
+/* ✅ Adjustments for Smaller Screens */
 @media (max-height: 600px) {
   .pdf-viewer-container {
-    width: 90%;  /* Reduce width for smaller height screens */
-    max-height: 80%;  /* Ensure the PDF fits within smaller heights */
+    width: 90%;
+    max-height: 80%;
   }
 }
