@@ -62,17 +62,15 @@ function App() {
             </div>
 
             <div>
-                <h2>Available Books</h2>
-                <ul>
-                    {books.map((book, index) => (
-                        <li key={index}>
-                            <button onClick={() => handleBookClick(book)}>
-                                {book}
-                            </button>
-                        </li>
-                    ))}
-                </ul>
+    <h2>Available Books</h2>
+    <div className="book-grid">
+        {books.map((book, index) => (
+            <div key={index} className="book-card" onClick={() => handleBookClick(book)}>
+                <p>{book}</p>
             </div>
+        ))}
+    </div>
+</div>
 
             {/* Display PDF viewer modal when a book is selected */}
             {selectedBook && (
